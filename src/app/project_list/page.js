@@ -1,3 +1,3 @@
 export default function about() {
-    return <h1> hallo </h1>
+    return(<h1> aölsdkjf </h1>)
 }
