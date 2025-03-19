@@ -4,8 +4,9 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div>
-      <p>wienner</p>
-    </div>
+      <div>
+          <h1>Victor</h1>
+          <h1>Pesci</h1>
+      </div>
   );
 }

@@ -19,16 +19,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <img src={"../noise.jpg"} alt={placeholder_image}></img>
-      <header>
-
-      </header>
-      <body>
-
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
       </body>
-      <footer>
-
-      </footer>
     </html>
   );
 }
