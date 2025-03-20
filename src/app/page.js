@@ -1,15 +1,19 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Links from "next/link"
+import "./globals.css"
+import Link from "next/link";
 
 
 export default function Home() {
   return (
-      <div>
+      <div className={"home_page"}>
           <h1>victor</h1>
           <h1>Pesci</h1>
 
-          <a href="./project_list/page.js">project list</a>
-          <a href="./about_me/page.js">about me</a>
+          <b>
+              <Link href="/about_me" className={"button"}>Go to About</Link> <br />
+              <Link href="/project_list" className={"button"}>View Projects</Link>
+          </b>
+
       </div>
   );
 }
