@@ -104,7 +104,10 @@ h1{
 }
 
 .square_show{
-  position: relative;
+  position: absolute;
+  align-items: center;
+  justify-items: center;
+  justify-self: center;
   z-index: 100;
   background-color: blue;
   width: 40vw;

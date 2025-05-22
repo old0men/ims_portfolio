@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react"
 export default function about() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const squareRef = useRef([])
 
     const handleClick = (index, event) => {

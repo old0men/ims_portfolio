@@ -28,6 +28,7 @@ async function fetchGHrepos() {
 }
 
 export default function project_list() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         fetchGHrepos();
     }, []);
