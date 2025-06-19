@@ -90,13 +90,13 @@ export default function About() {
                         <p>Info 2</p>
                     </section>
                 </div>
-                <div key={1} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[1] = el)}>
+                <div key={1} className={"overlay overlay-1 hidden"} ref={(el) => (overlayRefs.current[1] = el)}>
                     s1
                 </div>
-                <div key={2} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[2] = el)}>
+                <div key={2} className={"overlay overlay-2 hidden"} ref={(el) => (overlayRefs.current[2] = el)}>
                     s2
                 </div>
-                <div key={3} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[3] = el)}>
+                <div key={3} className={"overlay overlay-3 hidden"} ref={(el) => (overlayRefs.current[3] = el)}>
                     s3
                 </div>
 
