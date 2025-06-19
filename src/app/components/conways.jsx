@@ -1,12 +1,16 @@
 "use client";
-import { useEffect, useRef } from "react";
+import {useEffect, useRef, useState} from "react";
 import createREGL from "regl";
 
 export default function GameOfLifeBackground() {
     const canvasRef = useRef(null);
+    const [width, setWidth] = useState(null);
+    const [height, setHeight] = useState(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
         const regl = createREGL({ canvas });
 
         const gridSize = 256;
@@ -146,8 +150,8 @@ export default function GameOfLifeBackground() {
     return (
         <canvas
             ref={canvasRef}
-            width={window.innerWidth}
-            height={window.innerHeight}
+            width={width}
+            height={height}
             style={{
                 position: "fixed",
                 top: 0,
