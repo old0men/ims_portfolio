@@ -1,10 +1,9 @@
 "use client";
 import { useRef } from "react";
+import Link from "next/link";
 
 export default function About() {
     const overlayRefs = useRef([]);
-
-    const totalOverlays = 4;
 
     const handleClick = (index, event) => {
         event.stopPropagation();
@@ -16,7 +15,12 @@ export default function About() {
         if (overlay) {
             overlay.classList.remove("hidden");
             overlay.classList.add("show");
+            console.log("show" + index)
             overlay_background.classList.add("dark_background");
+        }
+
+        if (overlay.show) {
+            handleRemove()
         }
     };
 
@@ -33,12 +37,28 @@ export default function About() {
         }
     };
 
+
     return (
         <div className="about_me_body" id="overlay_background" onClick={handleRemove}>
+            <Link className={"page_back"} href={"./"}>⋖</Link>
             <div className="about_me_flexing_container">
                 <article className="left">
                     <div className="square" onClick={(e) => handleClick(0, e)}>
-                        <p>Info 1</p>
+                        <section className={"left"}>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                        </section>
+                        <section className={"right"}>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                            <p>Info 1</p>
+                        </section>
                     </div>
                     <div className="square" onClick={(e) => handleClick(1, e)}>
                         <p>Info 2</p>
@@ -53,16 +73,33 @@ export default function About() {
                     </div>
                 </article>
 
-                {/* Overlays */}
-                {[0, 1, 2, 3].map((i) => (
-                    <div
-                        key={i}
-                        className={`overlay hidden overlay-${i}`}
-                        ref={(el) => (overlayRefs.current[i] = el)}
-                    >
-                        <p>Expanded info for square {i + 1}</p>
-                    </div>
-                ))}
+                <div key={0} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[0] = el)}>
+                    <section className={"left"}>
+                        <p>Info 1</p>
+                        <p>Info 1</p>
+                        <p>Info 1</p>
+                        <p>Info 1</p>
+                        <p>Info 1</p>
+                    </section>
+                    <section className={"right"}>
+                        <p>Info 2</p>
+                        <p>Info 2</p>
+                        <p>Info 2</p>
+                        <p>Info 2</p>
+                        <p>Info 2</p>
+                        <p>Info 2</p>
+                    </section>
+                </div>
+                <div key={1} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[1] = el)}>
+                    s1
+                </div>
+                <div key={2} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[2] = el)}>
+                    s2
+                </div>
+                <div key={3} className={"overlay overlay-0 hidden"} ref={(el) => (overlayRefs.current[3] = el)}>
+                    s3
+                </div>
+
             </div>
         </div>
     );
