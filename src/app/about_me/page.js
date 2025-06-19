@@ -1,65 +1,69 @@
 "use client";
-import { useRef } from "react"
-export default function about() {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const squareRef = useRef([])
+import { useRef } from "react";
+
+export default function About() {
+    const overlayRefs = useRef([]);
+
+    const totalOverlays = 4;
 
     const handleClick = (index, event) => {
+        event.stopPropagation();
+        const overlay = overlayRefs.current[index];
+        const overlay_background = document.getElementById("overlay_background");
 
-        event.stopPropagation()
-        let current_square =  squareRef.current[index]
+        handleRemove();
 
-        for (let i = 0; i < squareRef.current.length; i++) {
-            if (squareRef.current[i]?.classList.contains("square_show")) {
-                squareRef.current[i].classList.remove("square_show")
-                console.log("removed")
-            }
+        if (overlay) {
+            overlay.classList.remove("hidden");
+            overlay.classList.add("show");
+            overlay_background.classList.add("dark_background");
         }
-
-        if (current_square && index !== 5) {
-            console.log(current_square + " : " + squareRef.current)
-            current_square.classList.add("square_show")
-
-        }
-    }
+    };
 
     const handleRemove = () => {
-        for (let i = 0; i < squareRef.current.length; i++) {
-            if (squareRef.current[i]?.classList.contains("square_show")) {
-                squareRef.current[i].classList.remove("square_show")
-                console.log("removed")
+        overlayRefs.current.forEach((overlay) => {
+            if (overlay) {
+                overlay.classList.remove("show");
+                overlay.classList.add("hidden");
             }
+        });
+        const overlay_background = document.getElementById("overlay_background");
+        if (overlay_background) {
+            overlay_background.classList.remove("dark_background");
         }
-    }
+    };
 
     return (
-        <div className={"about_me_body"} onClick={() => handleRemove()}>
-            <span>
+        <div className="about_me_body" id="overlay_background" onClick={handleRemove}>
+            <div className="about_me_flexing_container">
+                <article className="left">
+                    <div className="square" onClick={(e) => handleClick(0, e)}>
+                        <p>Info 1</p>
+                    </div>
+                    <div className="square" onClick={(e) => handleClick(1, e)}>
+                        <p>Info 2</p>
+                    </div>
+                </article>
+                <article className="right">
+                    <div className="square" onClick={(e) => handleClick(2, e)}>
+                        <p>Info 3</p>
+                    </div>
+                    <div className="square" onClick={(e) => handleClick(3, e)}>
+                        <p>Info 4</p>
+                    </div>
+                </article>
 
-            </span>
-            <div className={"about_me_flexing_container"}>
-                <article className={"left"}>
-                    <p className={"square"}
-                       ref={(current_square) => (squareRef.current[0] = current_square)}
-                       onClick={(e) => handleClick(0, e)}
-                    ></p>
-                    <p className={"square"}
-                       ref={(current_square) => (squareRef.current[1] = current_square)}
-                       onClick={(e) => handleClick(1, e)}
-                    ></p>
-                </article>
-                <article className={"right"}>
-                    <p className={"square"}
-                       ref={(current_square) => (squareRef.current[2] = current_square)}
-                       onClick={(e) => handleClick(2, e)}
-                    ></p>
-                    <p className={"square"}
-                       ref={(current_square) => (squareRef.current[3] = current_square)}
-                       onClick={(e) => handleClick(3, e)}
-                    ></p>
-                </article>
+                {/* Overlays */}
+                {[0, 1, 2, 3].map((i) => (
+                    <div
+                        key={i}
+                        className={`overlay hidden overlay-${i}`}
+                        ref={(el) => (overlayRefs.current[i] = el)}
+                    >
+                        <p>Expanded info for square {i + 1}</p>
+                    </div>
+                ))}
             </div>
         </div>
-    )
-
+    );
 }

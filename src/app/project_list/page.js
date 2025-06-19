@@ -3,13 +3,9 @@
 import {useEffect} from "react";
 
 async function fetchGHrepos() {
-    console.log("got to here")
     const url = `https://api.github.com/users/old0men/repos`;
-
     try {
-
         const response = await fetch(url)
-        console.log("also got to here")
         const repos = await response.json()
         const container = document.getElementsByClassName("repo")[0]
 

@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import CanvasBackground from "@/app/components/background";
+import GameOfLifeBackground from "./components/conways.jsx";
 import "./globals.css"
 
 const geistSans = Geist({
@@ -20,14 +20,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
       <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <head>
-        <meta charSet="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Portfolio Victor</title>
-      </head>
-      <body>
-      {children}
-      </body>
+          <head>
+            <meta charSet="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <title>Portfolio Victor</title>
+          </head>
+          <body>
+            <GameOfLifeBackground />
+            <main>{children}</main>
+          </body>
       </html>
   );
 }
