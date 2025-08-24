@@ -7,11 +7,11 @@ export default function Home() {
 
   return (
       <div className={"home_page"}>
-          <h1>victor</h1>
+          <h1>Victor</h1>
           <h1>Pesci</h1>
 
           <b>
-              <Link href="./about_me" className={"button"}>Go to About</Link> <br/>
+              <Link href="./about_me" className={"button"}>Go to About</Link> <br/><br/>
               <Link href="./project_list" className={"button"}>View Projects</Link>
           </b>
       </div>

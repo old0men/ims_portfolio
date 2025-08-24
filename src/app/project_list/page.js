@@ -49,8 +49,10 @@ export default function project_list() {
 
     return (
         <div className={"project_list_page"}>
-            <Link className={"page_back_project_list"} href={"./"}>⋖</Link>
-            <h1 className={"project_list_title"}>project list</h1>
+            <section className={"project_list_header"}>
+                <Link className={"page_back_project_list"} href={"./"}>⋖</Link>
+                <h1 className={"project_list_title"}>project list</h1>
+            </section>
             <div className={"repo"}></div>
         </div>
     )

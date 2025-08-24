@@ -78,7 +78,7 @@ export default function GameOfLifeBackground() {
         }
 
         // Random injection
-        if (fract(sin(dot(uv * 1000.0, vec2(12.9898, 78.233))) * 43758.5453) > 0.996) {
+        if (fract(sin(dot(uv * 1000.0, vec2(12.9898, 78.233))) * 43758.5453) > 0.997) {
           next = 1.0;
         }
 
