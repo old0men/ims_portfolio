@@ -27,6 +27,12 @@ h1{
   margin: 10px;
 }
 
+h2{
+  font-size: 80px;
+  font-family: "titleFont", serif;
+  margin: 10px;
+}
+
 .button{
   font-family: "titleFont", serif;
   color: black;
@@ -118,23 +124,24 @@ h1{
   pointer-events: none;
 }
 
+
 .overlay-0.hidden {
   transform: translate(-100%, -100%) scale(0.8);
   opacity: 0;
   pointer-events: none;
 }
 .overlay-1.hidden {
-  transform: translate(-100%, 100%) scale(0.8);
+  transform: translate(-100%, -20%) scale(0.8);
   opacity: 0;
   pointer-events: none;
 }
 .overlay-2.hidden {
-  transform: translate(100%, -100%) scale(0.8);
+  transform: translate(-20%, -100%) scale(0.8);
   opacity: 0;
   pointer-events: none;
 }
 .overlay-3.hidden {
-  transform: translate(100%, 100%) scale(0.8);
+  transform: translate(-20%, -20%) scale(0.8);
   opacity: 0;
   pointer-events: none;
 }
@@ -147,6 +154,21 @@ h1{
 
 .dark_background {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.about_me_am_text {
+  display: flex;
+  font-family: "titleFont", serif;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0 0 32rem;
+  min-height: 300px;
+}
+
+.about_me_am_text .content_wrapper {
+  max-width: 550px;
 }
 
 .page_back{
